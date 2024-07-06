@@ -14,7 +14,7 @@ CREATE TABLE movie (
 	Title VARCHAR (255) NOT NULL,
 	Language_Id VARCHAR (30) NOT NULL,
 	FOREIGN KEY (Language_Id) REFERENCES language(Language_Id),
-	Overview VARCHAR (65535) NOT NULL,
+	Overview VARCHAR (8000) NOT NULL,
 	Release_Date DATE NOT NULL,
 	Popularity FLOAT NOT NULL,
 	Vote_Average FLOAT NOT NULL,
