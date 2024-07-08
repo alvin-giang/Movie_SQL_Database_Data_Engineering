@@ -22,10 +22,9 @@ CREATE TABLE movie (
 );
 
 CREATE TABLE movie_genre (
-	Movie_Id INTEGER NOT NULL,
-	FOREIGN KEY (Movie_Id) REFERENCES movie(Movie_Id),
-	Genre_Id INTEGER NOT NULL,
-	FOREIGN KEY (Genre_Id) REFERENCES genre(Genre_Id)
+	Movie_Id INTEGER NOT NULL REFERENCES movie(Movie_Id),
+	Genre_Id INTEGER NOT NULL REFERENCES genre(Genre_Id),
+	PRIMARY KEY (Movie_Id, Genre_Id)
 );
 
 SELECT * FROM movie_genre
