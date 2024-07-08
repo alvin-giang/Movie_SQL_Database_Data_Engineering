@@ -98,8 +98,8 @@ def welcome():
                             <li class="class1"><a href="/api/v1.0/movies">/api/v1.0/movies</a> - Top 500 movies</li>
                             <li class="class1"><a href="/api/v1.0/overview/movie-name/">/api/v1.0/overview/movie-name/</a> - Movie's overview - Enter the name of the movie</li>
                             <li class="class1"><a href="/api/v1.0/top-10-movies/year/">/api/v1.0/top-10-movies/year/</a> - Top 10 movies of each year - Enter the year</li>
-                            <li class="class1"><a href="/api/v1.0/ABC">/api/v1.0/ABC</a> - ABC</li>
-                            <li class="class1"><a href="/api/v1.0/ABC">/api/v1.0/ABC</a> - ABC</li>
+                            <li class="class1"><a href="/api/v1.0/top-10-movies/language/english">/api/v1.0/top-10-movies/language/english</a> - Top 10 English Language Movies</li>
+                            <li class="class1"><a href="/api/v1.0/top-10-movies/language/foreign-language">/api/v1.0/top-10-movies/language/foreign-language</a> - Top 10 Foreign Language Movies</li>
                         </ul>
                     </div>
                 </section>
@@ -135,7 +135,7 @@ def movies():
         movie_dict["Movie_Id"] = movie_id
         movie_dict["Title"] = title
         movie_dict["Release_Date"] = release_date
-        movie_dict["popularity"] = popularity
+        movie_dict["Popularity"] = popularity
         movie_dict["Vote_Average"] = vote_average
         movie_dict["Vote_Count"] = vote_count
         all_movies.append(movie_dict)
@@ -174,19 +174,62 @@ def top_10_movie(year):
     start_date = f"{year}-01-01"
     end_date = f"{year}-31-12"
 
-    results = session.query(Movie.movie_id, Movie.title, Movie.vote_average, Movie.release_date).filter(Movie.release_date >= start_date).filter(Movie.release_date <= end_date).order_by(Movie.vote_average.desc()).limit(10).all()
+    results = session.query(Movie.movie_id, Movie.title, Movie.vote_average, Movie.overview, Movie.release_date).filter(Movie.release_date >= start_date).filter(Movie.release_date <= end_date).order_by(Movie.vote_average.desc()).limit(10).all()
 
     session.close()
     top_10_movie = []
-    for movie_id, title, vote_average, release_date in results:
+    for movie_id, title, vote_average, overview, release_date in results:
         movie_dict = {}
         movie_dict["Movie_Id"] = movie_id
         movie_dict["Title"] = title
+        movie_dict["Overview"] = overview
         movie_dict["Release_Date"] = release_date
         movie_dict["Vote_Average"] = vote_average
         top_10_movie.append(movie_dict)
 
     return jsonify(top_10_movie)
+
+@app.route("/api/v1.0/top-10-movies/language/english")
+def top_10_movie_english():
+     # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    # Query all movies
+    results = session.query(Movie.movie_id, Movie.title, Movie.language_id, Movie.overview, Movie.vote_average).filter(Movie.language_id == "en").order_by(Movie.vote_average.desc()).limit(10).all()
+
+    session.close()
+    top_10_movie_english = []
+    for movie_id, title, language_id, overview, vote_average in results:
+        movie_dict_en = {}
+        movie_dict_en["Movie_Id"] = movie_id
+        movie_dict_en["Title"] = title
+        movie_dict_en["Language_Id"] = language_id
+        movie_dict_en["Overview"] = overview
+        movie_dict_en["Vote_Average"] = vote_average
+        top_10_movie_english.append(movie_dict_en)
+
+    return jsonify(top_10_movie_english)
+
+@app.route("/api/v1.0/top-10-movies/language/foreign-language")
+def top_10_movie_foreign_language():
+     # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    # Query all movies
+    results = session.query(Movie.movie_id, Movie.title, Movie.language_id, Movie.overview, Movie.vote_average).filter(Movie.language_id != "en").order_by(Movie.vote_average.desc()).limit(10).all()
+
+    session.close()
+    top_10_movie_foreign_language = []
+    for movie_id, title, language_id, overview,vote_average in results:
+        movie_dict = {}
+        movie_dict["Movie_Id"] = movie_id
+        movie_dict["Title"] = title
+        movie_dict["Overview"] = overview
+        movie_dict["Language_Id"] = language_id
+        movie_dict["Vote_Average"] = vote_average
+        top_10_movie_foreign_language.append(movie_dict)
+
+    return jsonify(top_10_movie_foreign_language)
 
 if __name__ == "__main__":
     app.run(debug=True)
