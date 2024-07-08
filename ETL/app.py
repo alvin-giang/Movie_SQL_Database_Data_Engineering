@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 import datetime as dt
 
 # Database Setup
-engine = create_engine("sqlite:///movies.sqlite")
+engine = create_engine("sqlite:///../SQL/movies.sqlite")
 Base = automap_base()
 Base.prepare(autoload_with=engine)
 
