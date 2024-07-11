@@ -5,5 +5,4 @@ Project-3_Group-4
 
 [![My Skills](https://skillicons.dev/icons?i=py,postgres,sqlite,flask)](https://skillicons.dev)
 ![image](https://github.com/alvin-giang/Movie_Database-Data_Engineering/assets/153242382/edcf81a8-8d33-4f59-b9a9-b2b264b5964
-
 ![image](https://github.com/alvin-giang/Movie_Database-Data_Engineering/assets/153242382/c55b7130-0206-4d6f-97f6-bf652df40d55)
