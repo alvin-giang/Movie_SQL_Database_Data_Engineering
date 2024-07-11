@@ -6,7 +6,15 @@ Project-3_Group-4
 [![My Skills](https://skillicons.dev/icons?i=py,postgres,sqlite,flask)](https://skillicons.dev)
 
 
-##Purpose:
+Purpose:
 To create a database of the top 500 movies from 2019 to 2024 for a general purpose, broad audience.
 We selected movies that had 1000 or more vote counts, with the highest vote average, to ensure we had the top 500 selections.
 
+This database allows you to search for :
+The top 10 English movies 
+Top 10 foreign language movies 
+Movie overviews by movie name
+Top 10 movie by year (between 2019 to 2024)
+
+
+![Uploading image.png…]()
