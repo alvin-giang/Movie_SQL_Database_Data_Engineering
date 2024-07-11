@@ -20,6 +20,21 @@ This database allows you to search for:
   
   Top 10 movie by year (between 2019 to 2024)
 
-# Instructions on how to use and interact with our movie database
+# Instructions on how to use and interact with our movie database:
+We have provided APIs which allow people to interact with our database of the top 500 movie titles between 2019 to 2024
+
+The user can query:
+
+The Top 500  Movies
+
+A movie overview by entering the name of the movie
+
+The top 10 movies of any year between 2019 to 2024 by entering the year
+
+The top 10 English language movies
+
+Or the Top 10 foreign language movies
+
+
 
 
