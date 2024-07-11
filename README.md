@@ -20,4 +20,6 @@ This database allows you to search for:
   
   Top 10 movie by year (between 2019 to 2024)
 
+# Instructions on how to use and interact with our movie database
+
 
