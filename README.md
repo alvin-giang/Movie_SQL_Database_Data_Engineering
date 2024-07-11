@@ -39,7 +39,7 @@ Or the Top 10 foreign language movies
 We excluded adult only movies in an attempt to develop a database that would be intended for general or broad audiences, even though the data we extracted was already available in the public domain.    The promotion of adult content raises several ethical concerns such as exploitation, or harm to persons involved in the industry or viewing these types of movies.
 
 # References
-References![image](https://github.com/alvin-giang/Movie_Database-Data_Engineering/assets/153242382/1bf17259-2109-43b9-b45d-c82cfe97d90f)
+
 
 
 
