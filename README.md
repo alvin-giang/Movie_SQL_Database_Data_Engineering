@@ -17,4 +17,3 @@ Movie overviews by movie name
 Top 10 movie by year (between 2019 to 2024)
 
 
-![Uploading image.png…]()
