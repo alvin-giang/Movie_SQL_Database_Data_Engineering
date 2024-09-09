@@ -1,48 +1,88 @@
 # Movie_Database-Data_Engineering
-Project-3_Group-4
 
-![image](https://github.com/alvin-giang/Movie_Database-Data_Engineering/assets/153242382/da078ef7-7c55-419b-9da8-0273bf9f1bf1)
+## Project Overview
 
-[![My Skills](https://skillicons.dev/icons?i=py,postgres,sqlite,flask)](https://skillicons.dev)
+This project is focused on building and managing a SQL database of the top 500 movies from 2019 to 2024, using a Python-based data engineering workflow. The project includes a user-friendly interface built with Flask, enabling users to interact with the movie database. It also features a data visualization component for displaying key insights about the movie data.
 
+## Project Structure
 
-# Purpose:
-To create a database of the top 500 movies from 2019 to 2024 for a general purpose, broad audience.
-We selected movies that had 1000 or more vote counts, with the highest vote average, to ensure we had the top 500 selections.
+* **ETL/data_enginerring.ipynb**: Involves the extraction, transformation, and loading (ETL) of movie data into a SQL database. The movie data is sourced from various APIs, cleaned, and stored in a relational database.
+* **ETL/data_visuallization.ipynb**: A separate module handles the visualization of the movie data, providing insights such as top-rated movies, distribution of genres, and other key metrics.
+* **ETL/app.py**: A simple web application built with Flask allows users to query the database and retrieve information about specific movies.
+* **Outputs**: Contains data files and data visualizations
+* **SQL**: Contains database files
+* **README.md**: Overview of the project
+* **LICENSE.txt**: License of the project
 
-This database allows you to search for:
+## Features
 
-  The top 10 English movies 
-  
-  Top 10 foreign language movies
-  
-  Movie overviews by movie name
-  
-  Top 10 movie by year (between 2019 to 2024)
+* **Data Extraction**: Fetches movie data from APIs for movies released between 2019 and 2024.
+* **Data Cleaning and Transformation**: Cleans and structures the data for insertion into a SQL database.
+* **Database Integration**: Stores movie data in a SQL database for efficient querying.
+* **Data Visualization**: Provides various visualizations such as movie ratings distribution and top-performing movies.
+* **Flask Web Interface**: Users can interact with the database through a simple web interface.
 
-# Instructions on how to use and interact with our movie database:
-We have provided APIs which allow people to interact with our database of the top 500 movie titles between 2019 to 2024
+## Technologies Used
 
-The user can query:
+* **Python**: Core programming language used throughout the project.
+* **Flask**: Web framework for building the user interface.
+* **SQL**: Relational database management system for storing and querying movie data.
+* **Jupyter Notebooks**: Used for data engineering and data visualization.
+* **Pandas**: For data manipulation and cleaning.
+* **Matplotlib / Seaborn**: For generating visualizations.
+* **APIs**: Movie data is fetched using external APIs.
 
-The Top 500  Movies
+## Setup Instructions
 
-A movie overview by entering the name of the movie
+### Prerequisites
 
-The top 10 movies of any year between 2019 to 2024 by entering the year
+* Python 3.x
+* Flask
+* SQL (MySQL, PostgreSQL, or SQLite)
+* Jupyter Notebook
+* Libraries: pandas, matplotlib, seaborn, SQLAlchemy, Flask, requests
 
-The top 10 English language movies
+### Installation
 
-Or the Top 10 foreign language movies
+1. Clone the repository:
 
-# Ethical Considerations
-We excluded adult only movies in an attempt to develop a database that would be intended for general or broad audiences, even though the data we extracted was already available in the public domain.    The promotion of adult content raises several ethical concerns such as exploitation, or harm to persons involved in the industry or viewing these types of movies.
+```python
+git clone https://github.com/alvin-giang/Movie_SQL_Database_Data_Engineering.git
+```
 
-# References
-https://developer.themoviedb.org/reference/discover-movie
+2. Install required Python libraries:
 
+```python
+pip install -r requirements.txt
+```
 
+3. Set up the SQL database:
 
+* Ensure your SQL server is running.
+* Create a database for storing movie data.
+* Update the database connection string in app.py.
 
+4. Run the Flask app:
 
+```python
+python app.py
+```
 
+5. Open your browser and go to `http://127.0.0.1:5000` to access the web interface.
+
+## Usage
+
+* **Data Engineering**: The Jupyter notebook (data_engineering.ipynb) handles the ETL process. It can be executed step-by-step to load the data into the SQL database.
+* **Data Visualization**: The data_visualization.ipynb notebook provides various plots and charts for visualizing the movie data.
+* **Flask App**: The web application provides an interface for querying the movie database. You can search for movies by title, genre, or release date.
+
+## Contributors
+
+* **Thanh Vinh Giang (Alvin)** : Project Lead and Developer
+* **Tammy Powell**: Contributor
+* **Hao Nguyen (Frank)**: Contributor
+* **Uthpalie THilakaratna-Attygalle**: Contributor
+
+## License
+
+This project is licensed under the MIT License.
